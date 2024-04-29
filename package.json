@@ -2,7 +2,7 @@
   "name": "bsky-share-button",
   "author": "holybea",
   "license": "MIT",
-  "version": "0.0.5",
+  "version": "0.0.7",
   "type": "module",
   "main": "dist/bsky-share-button.umd.js",
   "module": "dist/bsky-share-button.es.js",

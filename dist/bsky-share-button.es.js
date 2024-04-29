@@ -1,7 +1,7 @@
-var D = Object.defineProperty;
-var H = (e, t, n) => t in e ? D(e, t, { enumerable: !0, configurable: !0, writable: !0, value: n }) : e[t] = n;
-var f = (e, t, n) => (H(e, typeof t != "symbol" ? t + "" : t, n), n);
-function g() {
+var H = Object.defineProperty;
+var J = (e, t, n) => t in e ? H(e, t, { enumerable: !0, configurable: !0, writable: !0, value: n }) : e[t] = n;
+var a = (e, t, n) => (J(e, typeof t != "symbol" ? t + "" : t, n), n);
+function y() {
 }
 function R(e) {
   return e();
@@ -9,29 +9,29 @@ function R(e) {
 function B() {
   return /* @__PURE__ */ Object.create(null);
 }
-function x(e) {
+function k(e) {
   e.forEach(R);
 }
-function z(e) {
+function I(e) {
   return typeof e == "function";
 }
-function J(e, t) {
+function U(e, t) {
   return e != e ? t == t : e !== t || e && typeof e == "object" || typeof e == "function";
 }
-function U(e) {
+function V(e) {
   return Object.keys(e).length === 0;
 }
-function y(e, t) {
+function w(e, t) {
   e.appendChild(t);
 }
-function V(e, t, n) {
-  const i = q(e);
+function q(e, t, n) {
+  const i = F(e);
   if (!i.getElementById(t)) {
-    const r = C("style");
-    r.id = t, r.textContent = n, F(i, r);
+    const r = j("style");
+    r.id = t, r.textContent = n, G(i, r);
   }
 }
-function q(e) {
+function F(e) {
   if (!e)
     return document;
   const t = e.getRootNode ? e.getRootNode() : e.ownerDocument;
@@ -41,35 +41,38 @@ function q(e) {
     t
   ) : e.ownerDocument;
 }
-function F(e, t) {
-  return y(
+function G(e, t) {
+  return w(
     /** @type {Document} */
     e.head || e,
     t
   ), t.sheet;
 }
-function I(e, t, n) {
+function T(e, t, n) {
   e.insertBefore(t, n || null);
 }
-function E(e) {
+function C(e) {
   e.parentNode && e.parentNode.removeChild(e);
 }
-function C(e) {
+function j(e) {
   return document.createElement(e);
 }
-function L(e) {
+function P(e) {
   return document.createElementNS("http://www.w3.org/2000/svg", e);
 }
-function G(e) {
+function K(e) {
   return document.createTextNode(e);
 }
-function h(e, t, n) {
+function f(e, t, n) {
   n == null ? e.removeAttribute(t) : e.getAttribute(t) !== n && e.setAttribute(t, n);
 }
-function K(e) {
+function Q(e) {
   return Array.from(e.childNodes);
 }
-function Q(e) {
+function p(e, t, n, i) {
+  n == null ? e.style.removeProperty(t) : e.style.setProperty(t, n, "");
+}
+function W(e) {
   const t = {};
   return e.childNodes.forEach(
     /** @param {Element} node */
@@ -82,81 +85,81 @@ let O;
 function m(e) {
   O = e;
 }
-const _ = [], P = [];
-let b = [];
-const M = [], W = /* @__PURE__ */ Promise.resolve();
-let k = !1;
-function X() {
-  k || (k = !0, W.then($));
+const b = [], L = [];
+let _ = [];
+const M = [], X = /* @__PURE__ */ Promise.resolve();
+let E = !1;
+function Y() {
+  E || (E = !0, X.then($));
 }
-function v(e) {
-  b.push(e);
+function z(e) {
+  _.push(e);
 }
-const j = /* @__PURE__ */ new Set();
-let d = 0;
+const v = /* @__PURE__ */ new Set();
+let g = 0;
 function $() {
-  if (d !== 0)
+  if (g !== 0)
     return;
   const e = O;
   do {
     try {
-      for (; d < _.length; ) {
-        const t = _[d];
-        d++, m(t), Y(t.$$);
+      for (; g < b.length; ) {
+        const t = b[g];
+        g++, m(t), Z(t.$$);
       }
     } catch (t) {
-      throw _.length = 0, d = 0, t;
+      throw b.length = 0, g = 0, t;
     }
-    for (m(null), _.length = 0, d = 0; P.length; )
-      P.pop()();
-    for (let t = 0; t < b.length; t += 1) {
-      const n = b[t];
-      j.has(n) || (j.add(n), n());
+    for (m(null), b.length = 0, g = 0; L.length; )
+      L.pop()();
+    for (let t = 0; t < _.length; t += 1) {
+      const n = _[t];
+      v.has(n) || (v.add(n), n());
     }
-    b.length = 0;
-  } while (_.length);
+    _.length = 0;
+  } while (b.length);
   for (; M.length; )
     M.pop()();
-  k = !1, j.clear(), m(e);
-}
-function Y(e) {
-  if (e.fragment !== null) {
-    e.update(), x(e.before_update);
-    const t = e.dirty;
-    e.dirty = [-1], e.fragment && e.fragment.p(e.ctx, t), e.after_update.forEach(v);
-  }
+  E = !1, v.clear(), m(e);
 }
 function Z(e) {
+  if (e.fragment !== null) {
+    e.update(), k(e.before_update);
+    const t = e.dirty;
+    e.dirty = [-1], e.fragment && e.fragment.p(e.ctx, t), e.after_update.forEach(z);
+  }
+}
+function tt(e) {
   const t = [], n = [];
-  b.forEach((i) => e.indexOf(i) === -1 ? t.push(i) : n.push(i)), n.forEach((i) => i()), b = t;
+  _.forEach((i) => e.indexOf(i) === -1 ? t.push(i) : n.push(i)), n.forEach((i) => i()), _ = t;
 }
-const tt = /* @__PURE__ */ new Set();
-function et(e, t) {
-  e && e.i && (tt.delete(e), e.i(t));
+const et = /* @__PURE__ */ new Set();
+function nt(e, t) {
+  e && e.i && (et.delete(e), e.i(t));
 }
-function nt(e, t, n) {
+function st(e, t, n) {
   const { fragment: i, after_update: r } = e.$$;
-  i && i.m(t, n), v(() => {
-    const s = e.$$.on_mount.map(R).filter(z);
-    e.$$.on_destroy ? e.$$.on_destroy.push(...s) : x(s), e.$$.on_mount = [];
-  }), r.forEach(v);
-}
-function st(e, t) {
-  const n = e.$$;
-  n.fragment !== null && (Z(n.after_update), x(n.on_destroy), n.fragment && n.fragment.d(t), n.on_destroy = n.fragment = null, n.ctx = []);
+  i && i.m(t, n), z(() => {
+    const s = e.$$.on_mount.map(R).filter(I);
+    e.$$.on_destroy ? e.$$.on_destroy.push(...s) : k(s), e.$$.on_mount = [];
+  }), r.forEach(z);
 }
 function it(e, t) {
-  e.$$.dirty[0] === -1 && (_.push(e), X(), e.$$.dirty.fill(0)), e.$$.dirty[t / 31 | 0] |= 1 << t % 31;
+  const n = e.$$;
+  n.fragment !== null && (tt(n.after_update), k(n.on_destroy), n.fragment && n.fragment.d(t), n.on_destroy = n.fragment = null, n.ctx = []);
 }
-function rt(e, t, n, i, r, s, o = null, l = [-1]) {
-  const u = O;
+function rt(e, t) {
+  e.$$.dirty[0] === -1 && (b.push(e), Y(), e.$$.dirty.fill(0)), e.$$.dirty[t / 31 | 0] |= 1 << t % 31;
+}
+function ot(e, t, n, i, r, s, o = null, l = [-1]) {
+  const h = O;
   m(e);
   const c = e.$$ = {
     fragment: null,
     ctx: [],
     // state
     props: s,
-    update: g,
+    update: y,
     not_equal: r,
     bound: B(),
     // lifecycle
@@ -165,50 +168,50 @@ function rt(e, t, n, i, r, s, o = null, l = [-1]) {
     on_disconnect: [],
     before_update: [],
     after_update: [],
-    context: new Map(t.context || (u ? u.$$.context : [])),
+    context: new Map(t.context || (h ? h.$$.context : [])),
     // everything else
     callbacks: B(),
     dirty: l,
     skip_bound: !1,
-    root: t.target || u.$$.root
+    root: t.target || h.$$.root
   };
   o && o(c.root);
-  let p = !1;
-  if (c.ctx = n ? n(e, t.props || {}, (a, N, ...S) => {
-    const A = S.length ? S[0] : N;
-    return c.ctx && r(c.ctx[a], c.ctx[a] = A) && (!c.skip_bound && c.bound[a] && c.bound[a](A), p && it(e, a)), N;
-  }) : [], c.update(), p = !0, x(c.before_update), c.fragment = i ? i(c.ctx) : !1, t.target) {
+  let d = !1;
+  if (c.ctx = n ? n(e, t.props || {}, (u, A, ...N) => {
+    const S = N.length ? N[0] : A;
+    return c.ctx && r(c.ctx[u], c.ctx[u] = S) && (!c.skip_bound && c.bound[u] && c.bound[u](S), d && rt(e, u)), A;
+  }) : [], c.update(), d = !0, k(c.before_update), c.fragment = i ? i(c.ctx) : !1, t.target) {
     if (t.hydrate) {
-      const a = K(t.target);
-      c.fragment && c.fragment.l(a), a.forEach(E);
+      const u = Q(t.target);
+      c.fragment && c.fragment.l(u), u.forEach(C);
     } else
       c.fragment && c.fragment.c();
-    t.intro && et(e.$$.fragment), nt(e, t.target, t.anchor), $();
+    t.intro && nt(e.$$.fragment), st(e, t.target, t.anchor), $();
   }
-  m(u);
+  m(h);
 }
-let T;
-typeof HTMLElement == "function" && (T = class extends HTMLElement {
+let D;
+typeof HTMLElement == "function" && (D = class extends HTMLElement {
   constructor(t, n, i) {
     super();
     /** The Svelte component constructor */
-    f(this, "$$ctor");
+    a(this, "$$ctor");
     /** Slots */
-    f(this, "$$s");
+    a(this, "$$s");
     /** The Svelte component instance */
-    f(this, "$$c");
+    a(this, "$$c");
     /** Whether or not the custom element is connected */
-    f(this, "$$cn", !1);
+    a(this, "$$cn", !1);
     /** Component props data */
-    f(this, "$$d", {});
+    a(this, "$$d", {});
     /** `true` if currently in the process of reflecting component props back to attributes */
-    f(this, "$$r", !1);
+    a(this, "$$r", !1);
     /** @type {Record<string, CustomElementPropDefinition>} Props definition (name, reflected, type etc) */
-    f(this, "$$p_d", {});
+    a(this, "$$p_d", {});
     /** @type {Record<string, Function[]>} Event listeners */
-    f(this, "$$l", {});
+    a(this, "$$l", {});
     /** @type {Map<Function, Function>} Event listener unsubscribe functions */
-    f(this, "$$l_u", /* @__PURE__ */ new Map());
+    a(this, "$$l_u", /* @__PURE__ */ new Map());
     this.$$ctor = t, this.$$s = n, i && this.attachShadow({ mode: "open" });
   }
   addEventListener(t, n, i) {
@@ -231,29 +234,29 @@ typeof HTMLElement == "function" && (T = class extends HTMLElement {
           let o;
           return {
             c: function() {
-              o = C("slot"), s !== "default" && h(o, "name", s);
+              o = j("slot"), s !== "default" && f(o, "name", s);
             },
             /**
              * @param {HTMLElement} target
              * @param {HTMLElement} [anchor]
              */
-            m: function(c, p) {
-              I(c, o, p);
+            m: function(c, d) {
+              T(c, o, d);
             },
             d: function(c) {
-              c && E(o);
+              c && C(o);
             }
           };
         };
       };
       if (await Promise.resolve(), !this.$$cn || this.$$c)
         return;
-      const n = {}, i = Q(this);
+      const n = {}, i = W(this);
       for (const s of this.$$s)
         s in i && (n[s] = [t(s)]);
       for (const s of this.attributes) {
         const o = this.$$g_p(s.name);
-        o in this.$$d || (this.$$d[o] = w(o, s.value, this.$$p_d, "toProp"));
+        o in this.$$d || (this.$$d[o] = x(o, s.value, this.$$p_d, "toProp"));
       }
       for (const s in this.$$p_d)
         !(s in this.$$d) && this[s] !== void 0 && (this.$$d[s] = this[s], delete this[s]);
@@ -271,7 +274,7 @@ typeof HTMLElement == "function" && (T = class extends HTMLElement {
         this.$$r = !0;
         for (const s in this.$$p_d)
           if (this.$$d[s] = this.$$c.$$.ctx[this.$$c.$$.props[s]], this.$$p_d[s].reflect) {
-            const o = w(
+            const o = x(
               s,
               this.$$d[s],
               this.$$p_d,
@@ -294,7 +297,7 @@ typeof HTMLElement == "function" && (T = class extends HTMLElement {
   // and setting attributes through setAttribute etc, this is helpful
   attributeChangedCallback(t, n, i) {
     var r;
-    this.$$r || (t = this.$$g_p(t), this.$$d[t] = w(t, i, this.$$p_d, "toProp"), (r = this.$$c) == null || r.$set({ [t]: this.$$d[t] }));
+    this.$$r || (t = this.$$g_p(t), this.$$d[t] = x(t, i, this.$$p_d, "toProp"), (r = this.$$c) == null || r.$set({ [t]: this.$$d[t] }));
   }
   disconnectedCallback() {
     this.$$cn = !1, Promise.resolve().then(() => {
@@ -307,7 +310,7 @@ typeof HTMLElement == "function" && (T = class extends HTMLElement {
     ) || t;
   }
 });
-function w(e, t, n, i) {
+function x(e, t, n, i) {
   var s;
   const r = (s = n[e]) == null ? void 0 : s.type;
   if (t = r === "Boolean" && typeof t != "boolean" ? t != null : t, !i || !n[e])
@@ -338,7 +341,7 @@ function w(e, t, n, i) {
     }
 }
 function ct(e, t, n, i, r, s) {
-  let o = class extends T {
+  let o = class extends D {
     constructor() {
       super(e, n, r), this.$$p_d = t;
     }
@@ -353,22 +356,22 @@ function ct(e, t, n, i, r, s) {
       get() {
         return this.$$c && l in this.$$c ? this.$$c[l] : this.$$d[l];
       },
-      set(u) {
+      set(h) {
         var c;
-        u = w(l, u, t), this.$$d[l] = u, (c = this.$$c) == null || c.$set({ [l]: u });
+        h = x(l, h, t), this.$$d[l] = h, (c = this.$$c) == null || c.$set({ [l]: h });
       }
     });
   }), i.forEach((l) => {
     Object.defineProperty(o.prototype, l, {
       get() {
-        var u;
-        return (u = this.$$c) == null ? void 0 : u[l];
+        var h;
+        return (h = this.$$c) == null ? void 0 : h[l];
       }
     });
   }), e.element = /** @type {any} */
   o, o;
 }
-class ot {
+class lt {
   constructor() {
     /**
      * ### PRIVATE API
@@ -377,7 +380,7 @@ class ot {
      *
      * @type {any}
      */
-    f(this, "$$");
+    a(this, "$$");
     /**
      * ### PRIVATE API
      *
@@ -385,11 +388,11 @@ class ot {
      *
      * @type {any}
      */
-    f(this, "$$set");
+    a(this, "$$set");
   }
   /** @returns {void} */
   $destroy() {
-    st(this, 1), this.$destroy = g;
+    it(this, 1), this.$destroy = y;
   }
   /**
    * @template {Extract<keyof Events, string>} K
@@ -398,8 +401,8 @@ class ot {
    * @returns {() => void}
    */
   $on(t, n) {
-    if (!z(n))
-      return g;
+    if (!I(n))
+      return y;
     const i = this.$$.callbacks[t] || (this.$$.callbacks[t] = []);
     return i.push(n), () => {
       const r = i.indexOf(n);
@@ -411,91 +414,130 @@ class ot {
    * @returns {void}
    */
   $set(t) {
-    this.$$set && !U(t) && (this.$$.skip_bound = !0, this.$$set(t), this.$$.skip_bound = !1);
+    this.$$set && !V(t) && (this.$$.skip_bound = !0, this.$$set(t), this.$$.skip_bound = !1);
   }
 }
-const lt = "4";
-typeof window < "u" && (window.__svelte || (window.__svelte = { v: /* @__PURE__ */ new Set() })).v.add(lt);
-function ut(e) {
-  V(e, "svelte-1h23jac", ".svelte-1h23jac,.svelte-1h23jac::before,.svelte-1h23jac::after{background-repeat:no-repeat;box-sizing:border-box}.svelte-1h23jac::before,.svelte-1h23jac::after{text-decoration:inherit;vertical-align:inherit}.svelte-1h23jac{padding:0;margin:0}a.svelte-1h23jac{background-color:transparent}a.svelte-1h23jac:active,a.svelte-1h23jac:hover{outline-width:0}a.svelte-1h23jac:focus{outline-width:0}.svelte-1h23jac::-webkit-file-upload-button{-webkit-appearance:button;color:inherit;font:inherit}.button.svelte-1h23jac{font-family:sans-serif;display:inline-flex;align-items:center;justify-content:center;gap:8px;background-color:#4a83fc;color:#fff;font-weight:bold;width:120px;height:40px;text-decoration:none;font-size:14px;border-radius:4px;transition:opacity .2s linear}.button.svelte-1h23jac:hover{opacity:.7}");
-}
+const ut = "4";
+typeof window < "u" && (window.__svelte || (window.__svelte = { v: /* @__PURE__ */ new Set() })).v.add(ut);
 function ht(e) {
+  q(e, "svelte-otyzem", ".svelte-otyzem,.svelte-otyzem::before,.svelte-otyzem::after{background-repeat:no-repeat;box-sizing:border-box}.svelte-otyzem::before,.svelte-otyzem::after{text-decoration:inherit;vertical-align:inherit}.svelte-otyzem{padding:0;margin:0}a.svelte-otyzem{background-color:transparent}a.svelte-otyzem:active,a.svelte-otyzem:hover{outline-width:0}a.svelte-otyzem:focus{outline-width:0}.svelte-otyzem::-webkit-file-upload-button{-webkit-appearance:button;color:inherit;font:inherit}.button.svelte-otyzem{font-family:sans-serif;display:inline-flex;align-items:center;justify-content:center;gap:8px;background-color:#4a83fc;color:#fff;font-weight:bold;width:var(--bsky-share-button-width, 96px);height:var(--bsky-share-button-height, 30px);text-decoration:none;font-size:calc(var(--bsky-share-button-height, 40px) * 0.425);border-radius:4px;transition:opacity .2s linear}.button.svelte-otyzem:hover{opacity:.7}");
+}
+function ft(e) {
   let t, n, i, r;
   return {
     c() {
-      t = C("a"), n = L("svg"), i = L("path"), r = G("Share"), h(i, "fill", "#fff"), h(i, "d", "M407.8 294.7c-3.3-.4-6.7-.8-10-1.3c3.4 .4 6.7 .9 10 1.3zM288 227.1C261.9 176.4 190.9 81.9 124.9 35.3C61.6-9.4 37.5-1.7 21.6 5.5C3.3 13.8 0 41.9 0 58.4S9.1 194 15 213.9c19.5 65.7 89.1 87.9 153.2 80.7c3.3-.5 6.6-.9 10-1.4c-3.3 .5-6.6 1-10 1.4C74.3 308.6-9.1 342.8 100.3 464.5C220.6 589.1 265.1 437.8 288 361.1c22.9 76.7 49.2 222.5 185.6 103.4c102.4-103.4 28.1-156-65.8-169.9c-3.3-.4-6.7-.8-10-1.3c3.4 .4 6.7 .9 10 1.3c64.1 7.1 133.6-15.1 153.2-80.7C566.9 194 576 75 576 58.4s-3.3-44.7-21.6-52.9c-15.8-7.1-40-14.9-103.2 29.8C385.1 81.9 314.1 176.4 288 227.1z"), h(i, "class", "svelte-1h23jac"), h(n, "xmlns", "http://www.w3.org/2000/svg"), h(n, "height", "14"), h(n, "width", "15.75"), h(n, "viewBox", "0 0 576 512"), h(n, "class", "svelte-1h23jac"), h(t, "class", "button svelte-1h23jac"), h(t, "href", "https://bsky.app/intent/compose?text=" + encodeURIComponent(
+      t = j("a"), n = P("svg"), i = P("path"), r = K(
+        /*buttonText*/
+        e[2]
+      ), f(i, "fill", "#fff"), f(i, "d", "M407.8 294.7c-3.3-.4-6.7-.8-10-1.3c3.4 .4 6.7 .9 10 1.3zM288 227.1C261.9 176.4 190.9 81.9 124.9 35.3C61.6-9.4 37.5-1.7 21.6 5.5C3.3 13.8 0 41.9 0 58.4S9.1 194 15 213.9c19.5 65.7 89.1 87.9 153.2 80.7c3.3-.5 6.6-.9 10-1.4c-3.3 .5-6.6 1-10 1.4C74.3 308.6-9.1 342.8 100.3 464.5C220.6 589.1 265.1 437.8 288 361.1c22.9 76.7 49.2 222.5 185.6 103.4c102.4-103.4 28.1-156-65.8-169.9c-3.3-.4-6.7-.8-10-1.3c3.4 .4 6.7 .9 10 1.3c64.1 7.1 133.6-15.1 153.2-80.7C566.9 194 576 75 576 58.4s-3.3-44.7-21.6-52.9c-15.8-7.1-40-14.9-103.2 29.8C385.1 81.9 314.1 176.4 288 227.1z"), f(i, "class", "svelte-otyzem"), f(n, "xmlns", "http://www.w3.org/2000/svg"), f(n, "height", "14"), f(n, "width", "15.75"), f(n, "viewBox", "0 0 576 512"), f(n, "class", "svelte-otyzem"), f(t, "class", "button svelte-otyzem"), f(
+        t,
+        "aria-label",
+        /*buttonText*/
+        e[2]
+      ), f(t, "href", "https://bsky.app/intent/compose?text=" + encodeURIComponent(
         /*text*/
-        e[0]
-      )), h(t, "target", "_blank"), h(t, "rel", "nofollow");
+        e[3]
+      )), p(
+        t,
+        "--bsky-share-button-width",
+        /*width*/
+        e[0] + "px"
+      ), p(
+        t,
+        "--bsky-share-button-height",
+        /*height*/
+        e[1] + "px"
+      ), f(t, "target", "_blank"), f(t, "rel", "nofollow");
     },
     m(s, o) {
-      I(s, t, o), y(t, n), y(n, i), y(t, r);
+      T(s, t, o), w(t, n), w(n, i), w(t, r);
     },
-    p: g,
-    i: g,
-    o: g,
+    p(s, [o]) {
+      o & /*width*/
+      1 && p(
+        t,
+        "--bsky-share-button-width",
+        /*width*/
+        s[0] + "px"
+      ), o & /*height*/
+      2 && p(
+        t,
+        "--bsky-share-button-height",
+        /*height*/
+        s[1] + "px"
+      );
+    },
+    i: y,
+    o: y,
     d(s) {
-      s && E(t);
+      s && C(t);
     }
   };
 }
-function ft(e, t, n) {
-  let { type: i = "button" } = t, { width: r = 120 } = t, { height: s = 40 } = t, { title: o = document.title || "" } = t, { url: l = location.href } = t, u = o + `
+function at(e, t, n) {
+  let { type: i = "button" } = t, { width: r = 96 } = t, { height: s = 30 } = t, { title: o = document.title || "" } = t, { url: l = location.href } = t, { lang: h = document.documentElement.lang || "en" } = t, c = h === "ja" ? "シェア" : "Share", d = o + `
 ` + l;
-  return e.$$set = (c) => {
-    "type" in c && n(1, i = c.type), "width" in c && n(2, r = c.width), "height" in c && n(3, s = c.height), "title" in c && n(4, o = c.title), "url" in c && n(5, l = c.url);
-  }, [u, i, r, s, o, l];
+  return e.$$set = (u) => {
+    "type" in u && n(4, i = u.type), "width" in u && n(0, r = u.width), "height" in u && n(1, s = u.height), "title" in u && n(5, o = u.title), "url" in u && n(6, l = u.url), "lang" in u && n(7, h = u.lang);
+  }, [r, s, c, d, i, o, l, h];
 }
-class at extends ot {
+class $t extends lt {
   constructor(t) {
-    super(), rt(
+    super(), ot(
       this,
       t,
+      at,
       ft,
-      ht,
-      J,
+      U,
       {
-        type: 1,
-        width: 2,
-        height: 3,
-        title: 4,
-        url: 5
+        type: 4,
+        width: 0,
+        height: 1,
+        title: 5,
+        url: 6,
+        lang: 7
       },
-      ut
+      ht
     );
   }
   get type() {
-    return this.$$.ctx[1];
+    return this.$$.ctx[4];
   }
   set type(t) {
     this.$$set({ type: t }), $();
   }
   get width() {
-    return this.$$.ctx[2];
+    return this.$$.ctx[0];
   }
   set width(t) {
     this.$$set({ width: t }), $();
   }
   get height() {
-    return this.$$.ctx[3];
+    return this.$$.ctx[1];
   }
   set height(t) {
     this.$$set({ height: t }), $();
   }
   get title() {
-    return this.$$.ctx[4];
+    return this.$$.ctx[5];
   }
   set title(t) {
     this.$$set({ title: t }), $();
   }
   get url() {
-    return this.$$.ctx[5];
+    return this.$$.ctx[6];
   }
   set url(t) {
     this.$$set({ url: t }), $();
   }
+  get lang() {
+    return this.$$.ctx[7];
+  }
+  set lang(t) {
+    this.$$set({ lang: t }), $();
+  }
 }
-customElements.define("bsky-share-button", ct(at, { type: {}, width: {}, height: {}, title: {}, url: {} }, [], [], !0));
+customElements.define("bsky-share-button", ct($t, { type: {}, width: {}, height: {}, title: {}, url: {}, lang: {} }, [], [], !0));
 export {
-  at as default
+  $t as default
 };
