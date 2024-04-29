@@ -3,14 +3,14 @@ var J = (e, t, n) => t in e ? H(e, t, { enumerable: !0, configurable: !0, writab
 var a = (e, t, n) => (J(e, typeof t != "symbol" ? t + "" : t, n), n);
 function y() {
 }
-function R(e) {
+function z(e) {
   return e();
 }
-function B() {
+function P() {
   return /* @__PURE__ */ Object.create(null);
 }
 function k(e) {
-  e.forEach(R);
+  e.forEach(z);
 }
 function I(e) {
   return typeof e == "function";
@@ -27,7 +27,7 @@ function w(e, t) {
 function q(e, t, n) {
   const i = F(e);
   if (!i.getElementById(t)) {
-    const r = j("style");
+    const r = O("style");
     r.id = t, r.textContent = n, G(i, r);
   }
 }
@@ -54,10 +54,10 @@ function T(e, t, n) {
 function C(e) {
   e.parentNode && e.parentNode.removeChild(e);
 }
-function j(e) {
+function O(e) {
   return document.createElement(e);
 }
-function P(e) {
+function L(e) {
   return document.createElementNS("http://www.w3.org/2000/svg", e);
 }
 function K(e) {
@@ -81,26 +81,26 @@ function W(e) {
     }
   ), t;
 }
-let O;
+let A;
 function m(e) {
-  O = e;
+  A = e;
 }
-const b = [], L = [];
+const b = [], M = [];
 let _ = [];
-const M = [], X = /* @__PURE__ */ Promise.resolve();
-let E = !1;
+const R = [], X = /* @__PURE__ */ Promise.resolve();
+let v = !1;
 function Y() {
-  E || (E = !0, X.then($));
+  v || (v = !0, X.then($));
 }
-function z(e) {
+function E(e) {
   _.push(e);
 }
-const v = /* @__PURE__ */ new Set();
+const j = /* @__PURE__ */ new Set();
 let g = 0;
 function $() {
   if (g !== 0)
     return;
-  const e = O;
+  const e = A;
   do {
     try {
       for (; g < b.length; ) {
@@ -110,23 +110,23 @@ function $() {
     } catch (t) {
       throw b.length = 0, g = 0, t;
     }
-    for (m(null), b.length = 0, g = 0; L.length; )
-      L.pop()();
+    for (m(null), b.length = 0, g = 0; M.length; )
+      M.pop()();
     for (let t = 0; t < _.length; t += 1) {
       const n = _[t];
-      v.has(n) || (v.add(n), n());
+      j.has(n) || (j.add(n), n());
     }
     _.length = 0;
   } while (b.length);
-  for (; M.length; )
-    M.pop()();
-  E = !1, v.clear(), m(e);
+  for (; R.length; )
+    R.pop()();
+  v = !1, j.clear(), m(e);
 }
 function Z(e) {
   if (e.fragment !== null) {
     e.update(), k(e.before_update);
     const t = e.dirty;
-    e.dirty = [-1], e.fragment && e.fragment.p(e.ctx, t), e.after_update.forEach(z);
+    e.dirty = [-1], e.fragment && e.fragment.p(e.ctx, t), e.after_update.forEach(E);
   }
 }
 function tt(e) {
@@ -139,10 +139,10 @@ function nt(e, t) {
 }
 function st(e, t, n) {
   const { fragment: i, after_update: r } = e.$$;
-  i && i.m(t, n), z(() => {
-    const s = e.$$.on_mount.map(R).filter(I);
+  i && i.m(t, n), E(() => {
+    const s = e.$$.on_mount.map(z).filter(I);
     e.$$.on_destroy ? e.$$.on_destroy.push(...s) : k(s), e.$$.on_mount = [];
-  }), r.forEach(z);
+  }), r.forEach(E);
 }
 function it(e, t) {
   const n = e.$$;
@@ -152,7 +152,7 @@ function rt(e, t) {
   e.$$.dirty[0] === -1 && (b.push(e), Y(), e.$$.dirty.fill(0)), e.$$.dirty[t / 31 | 0] |= 1 << t % 31;
 }
 function ot(e, t, n, i, r, s, o = null, l = [-1]) {
-  const h = O;
+  const h = A;
   m(e);
   const c = e.$$ = {
     fragment: null,
@@ -161,7 +161,7 @@ function ot(e, t, n, i, r, s, o = null, l = [-1]) {
     props: s,
     update: y,
     not_equal: r,
-    bound: B(),
+    bound: P(),
     // lifecycle
     on_mount: [],
     on_destroy: [],
@@ -170,16 +170,16 @@ function ot(e, t, n, i, r, s, o = null, l = [-1]) {
     after_update: [],
     context: new Map(t.context || (h ? h.$$.context : [])),
     // everything else
-    callbacks: B(),
+    callbacks: P(),
     dirty: l,
     skip_bound: !1,
     root: t.target || h.$$.root
   };
   o && o(c.root);
   let d = !1;
-  if (c.ctx = n ? n(e, t.props || {}, (u, A, ...N) => {
-    const S = N.length ? N[0] : A;
-    return c.ctx && r(c.ctx[u], c.ctx[u] = S) && (!c.skip_bound && c.bound[u] && c.bound[u](S), d && rt(e, u)), A;
+  if (c.ctx = n ? n(e, t.props || {}, (u, N, ...S) => {
+    const B = S.length ? S[0] : N;
+    return c.ctx && r(c.ctx[u], c.ctx[u] = B) && (!c.skip_bound && c.bound[u] && c.bound[u](B), d && rt(e, u)), N;
   }) : [], c.update(), d = !0, k(c.before_update), c.fragment = i ? i(c.ctx) : !1, t.target) {
     if (t.hydrate) {
       const u = Q(t.target);
@@ -234,7 +234,7 @@ typeof HTMLElement == "function" && (D = class extends HTMLElement {
           let o;
           return {
             c: function() {
-              o = j("slot"), s !== "default" && f(o, "name", s);
+              o = O("slot"), s !== "default" && f(o, "name", s);
             },
             /**
              * @param {HTMLElement} target
@@ -420,16 +420,16 @@ class lt {
 const ut = "4";
 typeof window < "u" && (window.__svelte || (window.__svelte = { v: /* @__PURE__ */ new Set() })).v.add(ut);
 function ht(e) {
-  q(e, "svelte-otyzem", ".svelte-otyzem,.svelte-otyzem::before,.svelte-otyzem::after{background-repeat:no-repeat;box-sizing:border-box}.svelte-otyzem::before,.svelte-otyzem::after{text-decoration:inherit;vertical-align:inherit}.svelte-otyzem{padding:0;margin:0}a.svelte-otyzem{background-color:transparent}a.svelte-otyzem:active,a.svelte-otyzem:hover{outline-width:0}a.svelte-otyzem:focus{outline-width:0}.svelte-otyzem::-webkit-file-upload-button{-webkit-appearance:button;color:inherit;font:inherit}.button.svelte-otyzem{font-family:sans-serif;display:inline-flex;align-items:center;justify-content:center;gap:8px;background-color:#4a83fc;color:#fff;font-weight:bold;width:var(--bsky-share-button-width, 96px);height:var(--bsky-share-button-height, 30px);text-decoration:none;font-size:calc(var(--bsky-share-button-height, 40px) * 0.425);border-radius:4px;transition:opacity .2s linear}.button.svelte-otyzem:hover{opacity:.7}");
+  q(e, "svelte-1j8504", ".svelte-1j8504,.svelte-1j8504::before,.svelte-1j8504::after{background-repeat:no-repeat;box-sizing:border-box}.svelte-1j8504::before,.svelte-1j8504::after{text-decoration:inherit;vertical-align:inherit}.svelte-1j8504{padding:0;margin:0}a.svelte-1j8504{background-color:transparent}a.svelte-1j8504:active,a.svelte-1j8504:hover{outline-width:0}a.svelte-1j8504:focus{outline-width:0}.svelte-1j8504::-webkit-file-upload-button{-webkit-appearance:button;color:inherit;font:inherit}.button.svelte-1j8504{font-family:sans-serif;display:inline-flex;align-items:center;justify-content:center;gap:8px;background-color:#0085ff;color:#fff;font-weight:bold;width:var(--bsky-share-button-width, 96px);height:var(--bsky-share-button-height, 30px);text-decoration:none;font-size:calc(var(--bsky-share-button-height, 40px) * 0.425);border-radius:4px;transition:opacity .2s linear}.button.svelte-1j8504:hover{opacity:.7}");
 }
 function ft(e) {
   let t, n, i, r;
   return {
     c() {
-      t = j("a"), n = P("svg"), i = P("path"), r = K(
+      t = O("a"), n = L("svg"), i = L("path"), r = K(
         /*buttonText*/
         e[2]
-      ), f(i, "fill", "#fff"), f(i, "d", "M407.8 294.7c-3.3-.4-6.7-.8-10-1.3c3.4 .4 6.7 .9 10 1.3zM288 227.1C261.9 176.4 190.9 81.9 124.9 35.3C61.6-9.4 37.5-1.7 21.6 5.5C3.3 13.8 0 41.9 0 58.4S9.1 194 15 213.9c19.5 65.7 89.1 87.9 153.2 80.7c3.3-.5 6.6-.9 10-1.4c-3.3 .5-6.6 1-10 1.4C74.3 308.6-9.1 342.8 100.3 464.5C220.6 589.1 265.1 437.8 288 361.1c22.9 76.7 49.2 222.5 185.6 103.4c102.4-103.4 28.1-156-65.8-169.9c-3.3-.4-6.7-.8-10-1.3c3.4 .4 6.7 .9 10 1.3c64.1 7.1 133.6-15.1 153.2-80.7C566.9 194 576 75 576 58.4s-3.3-44.7-21.6-52.9c-15.8-7.1-40-14.9-103.2 29.8C385.1 81.9 314.1 176.4 288 227.1z"), f(i, "class", "svelte-otyzem"), f(n, "xmlns", "http://www.w3.org/2000/svg"), f(n, "height", "14"), f(n, "width", "15.75"), f(n, "viewBox", "0 0 576 512"), f(n, "class", "svelte-otyzem"), f(t, "class", "button svelte-otyzem"), f(
+      ), f(i, "fill", "#fff"), f(i, "d", "M407.8 294.7c-3.3-.4-6.7-.8-10-1.3c3.4 .4 6.7 .9 10 1.3zM288 227.1C261.9 176.4 190.9 81.9 124.9 35.3C61.6-9.4 37.5-1.7 21.6 5.5C3.3 13.8 0 41.9 0 58.4S9.1 194 15 213.9c19.5 65.7 89.1 87.9 153.2 80.7c3.3-.5 6.6-.9 10-1.4c-3.3 .5-6.6 1-10 1.4C74.3 308.6-9.1 342.8 100.3 464.5C220.6 589.1 265.1 437.8 288 361.1c22.9 76.7 49.2 222.5 185.6 103.4c102.4-103.4 28.1-156-65.8-169.9c-3.3-.4-6.7-.8-10-1.3c3.4 .4 6.7 .9 10 1.3c64.1 7.1 133.6-15.1 153.2-80.7C566.9 194 576 75 576 58.4s-3.3-44.7-21.6-52.9c-15.8-7.1-40-14.9-103.2 29.8C385.1 81.9 314.1 176.4 288 227.1z"), f(i, "class", "svelte-1j8504"), f(n, "xmlns", "http://www.w3.org/2000/svg"), f(n, "height", "14"), f(n, "width", "15.75"), f(n, "viewBox", "0 0 576 512"), f(n, "class", "svelte-1j8504"), f(t, "class", "button svelte-1j8504"), f(
         t,
         "aria-label",
         /*buttonText*/
