@@ -24,7 +24,7 @@
       align-items: center;
       justify-content: center;
       gap: 8px;
-      background-color: #4a83fc;
+      background-color: #0085ff;
       color: #fff;
       font-weight: bold;
       width: var(--bsky-share-button-width, 96px);
